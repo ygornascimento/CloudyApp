@@ -103,7 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				CC4AF198246E83D90013D68C /* Delegates */,
-				CC4AF199246E84A20013D68C /* View Controllers */,
+				CC4AF199246E84A20013D68C /* ViewControllers */,
 				CC4AF1BB246E84AA0013D68C /* Configuration */,
 				CC4AF197246E83CC0013D68C /* Storyboards */,
 				CC4AF1BE246E84B50013D68C /* Extensions */,
@@ -151,7 +151,7 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
-		CC4AF199246E84A20013D68C /* View Controllers */ = {
+		CC4AF199246E84A20013D68C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				CC4AF1AD246E84A20013D68C /* Root View Controller */,
@@ -159,7 +159,7 @@
 				CC4AF19A246E84A20013D68C /* Weather View Controllers */,
 				CC4AF1A0246E84A20013D68C /* Locations View Controller */,
 			);
-			path = "View Controllers";
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		CC4AF19A246E84A20013D68C /* Weather View Controllers */ = {
