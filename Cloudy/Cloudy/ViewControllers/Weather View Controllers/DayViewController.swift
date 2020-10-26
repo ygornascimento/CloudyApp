@@ -29,8 +29,8 @@ class DayViewController: WeatherViewController {
     weak var delegate: DayViewControllerDelegate?
 
     // MARK: -
-
-    var now: WeatherData? {
+    
+    var viewModel: DayViewModel? {
         didSet {
             updateView()
         }
@@ -47,8 +47,8 @@ class DayViewController: WeatherViewController {
     private func updateView() {
         activityIndicatorView.stopAnimating()
 
-        if let now = now {
-            updateWeatherDataContainerView(with: now)
+        if let viewModel = viewModel {
+            updateWeatherDataContainerView(with: viewModel)
 
         } else {
             messageLabel.isHidden = false
@@ -58,43 +58,51 @@ class DayViewController: WeatherViewController {
 
     // MARK: -
 
-    private func updateWeatherDataContainerView(with weatherData: WeatherData) {
+    private func updateWeatherDataContainerView(with viewModel: DayViewModel) {
         weatherDataContainerView.isHidden = false
         
-        var windSpeed = weatherData.windSpeed
-        var temperature = weatherData.temperature
+//        var windSpeed = weatherData.windSpeed
+//        var temperature = weatherData.temperature
+//
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "EEE, MMMM d"
+//        dateLabel.text = dateFormatter.string(from: weatherData.time)
+        dateLabel.text = viewModel.date
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEE, MMMM d"
-        dateLabel.text = dateFormatter.string(from: weatherData.time)
+//        let timeFormatter = DateFormatter()
+//
+//        if UserDefaults.timeNotation == .twelveHour {
+//            timeFormatter.dateFormat = "hh:mm a"
+//        } else {
+//            timeFormatter.dateFormat = "HH:mm"
+//        }
+//
+//        timeLabel.text = timeFormatter.string(from: weatherData.time)
+        timeLabel.text = viewModel.time
         
-        let timeFormatter = DateFormatter()
+//        descriptionLabel.text = weatherData.summary
+        descriptionLabel.text = viewModel.sumary
         
-        if UserDefaults.timeNotation == .twelveHour {
-            timeFormatter.dateFormat = "hh:mm a"
-        } else {
-            timeFormatter.dateFormat = "HH:mm"
-        }
+//        if UserDefaults.temperatureNotation != .fahrenheit {
+//            temperature = temperature.toCelcius
+//            temperatureLabel.text = String(format: "%.1f °C", temperature)
+//        } else {
+//            temperatureLabel.text = String(format: "%.1f °F", temperature)
+//        }
         
-        timeLabel.text = timeFormatter.string(from: weatherData.time)
+        temperatureLabel.text = viewModel.temperature
         
-        descriptionLabel.text = weatherData.summary
+//        if UserDefaults.unitsNotation != .imperial {
+//            windSpeed = windSpeed.toKPH
+//            windSpeedLabel.text = String(format: "%.f KPH", windSpeed)
+//        } else {
+//            windSpeedLabel.text = String(format: "%.f MPH", windSpeed)
+//        }
+//
+//        iconImageView.image = imageForIcon(withName: weatherData.icon)
         
-        if UserDefaults.temperatureNotation != .fahrenheit {
-            temperature = temperature.toCelcius
-            temperatureLabel.text = String(format: "%.1f °C", temperature)
-        } else {
-            temperatureLabel.text = String(format: "%.1f °F", temperature)
-        }
-        
-        if UserDefaults.unitsNotation != .imperial {
-            windSpeed = windSpeed.toKPH
-            windSpeedLabel.text = String(format: "%.f KPH", windSpeed)
-        } else {
-            windSpeedLabel.text = String(format: "%.f MPH", windSpeed)
-        }
-        
-        iconImageView.image = imageForIcon(withName: weatherData.icon)
+        windSpeedLabel.text = viewModel.windSpeed
+        iconImageView.image = viewModel.image
     }
 
     // MARK: - Actions

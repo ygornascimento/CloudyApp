@@ -13,4 +13,12 @@ enum TimeNotation: Int {
     case twelveHour
     case twentyFourHour
     
+    var dateFormat: String {
+        switch self {
+            case .twelveHour:
+                return "hh:mm a"
+            case  .twentyFourHour:
+                return "HH:mm"
+        }
+    }
 }
