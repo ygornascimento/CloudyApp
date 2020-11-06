@@ -38,6 +38,9 @@
 		CC4AF1DE246E96890013D68C /* WeatherDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4AF1DD246E96890013D68C /* WeatherDataError.swift */; };
 		F42362B3254CAA54005C852A /* WeatherDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42362B2254CAA54005C852A /* WeatherDayViewModel.swift */; };
 		F42362B7254DA20E005C852A /* WeatherDayPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42362B6254DA20E005C852A /* WeatherDayPresentable.swift */; };
+		F4374E3125555E3600114C58 /* weather.json in Resources */ = {isa = PBXBuildFile; fileRef = F4374E3025555E3600114C58 /* weather.json */; };
+		F4374E37255583E000114C58 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4374E36255583E000114C58 /* XCTestCase.swift */; };
+		F4374E3B25558EB400114C58 /* DayViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4374E3A25558EB400114C58 /* DayViewModelTest.swift */; };
 		F4516FCF2552AE570060EB36 /* SettingsTimeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4516FCE2552AE570060EB36 /* SettingsTimeViewModelTest.swift */; };
 		F4516FD52552BCB10060EB36 /* SettingsUnitsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4516FD42552BCB10060EB36 /* SettingsUnitsViewModelTest.swift */; };
 		F4516FD92552BF060060EB36 /* SettingsTemperatureViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4516FD82552BF060060EB36 /* SettingsTemperatureViewModelTest.swift */; };
@@ -94,6 +97,9 @@
 		CC4AF1DD246E96890013D68C /* WeatherDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataError.swift; sourceTree = "<group>"; };
 		F42362B2254CAA54005C852A /* WeatherDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDayViewModel.swift; sourceTree = "<group>"; };
 		F42362B6254DA20E005C852A /* WeatherDayPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDayPresentable.swift; sourceTree = "<group>"; };
+		F4374E3025555E3600114C58 /* weather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weather.json; sourceTree = "<group>"; };
+		F4374E36255583E000114C58 /* XCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
+		F4374E3A25558EB400114C58 /* DayViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewModelTest.swift; sourceTree = "<group>"; };
 		F4516FB625520F7C0060EB36 /* CloudyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CloudyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4516FBA25520F7C0060EB36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4516FCE2552AE570060EB36 /* SettingsTimeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTimeViewModelTest.swift; sourceTree = "<group>"; };
@@ -380,6 +386,7 @@
 				F4516FCE2552AE570060EB36 /* SettingsTimeViewModelTest.swift */,
 				F4516FD42552BCB10060EB36 /* SettingsUnitsViewModelTest.swift */,
 				F4516FD82552BF060060EB36 /* SettingsTemperatureViewModelTest.swift */,
+				F4374E3A25558EB400114C58 /* DayViewModelTest.swift */,
 			);
 			path = "Test Cases";
 			sourceTree = "<group>";
@@ -387,6 +394,7 @@
 		F4516FC325520FB40060EB36 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F4374E36255583E000114C58 /* XCTestCase.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -394,6 +402,7 @@
 		F4516FC425520FBF0060EB36 /* Stubs */ = {
 			isa = PBXGroup;
 			children = (
+				F4374E3025555E3600114C58 /* weather.json */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -525,6 +534,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4374E3125555E3600114C58 /* weather.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +589,8 @@
 			files = (
 				F4516FD52552BCB10060EB36 /* SettingsUnitsViewModelTest.swift in Sources */,
 				F4516FD92552BF060060EB36 /* SettingsTemperatureViewModelTest.swift in Sources */,
+				F4374E3B25558EB400114C58 /* DayViewModelTest.swift in Sources */,
+				F4374E37255583E000114C58 /* XCTestCase.swift in Sources */,
 				F4516FCF2552AE570060EB36 /* SettingsTimeViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
