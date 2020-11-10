@@ -43,6 +43,7 @@
 		F4374E3B25558EB400114C58 /* DayViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4374E3A25558EB400114C58 /* DayViewModelTest.swift */; };
 		F44022DA2556D50200774E43 /* WeekViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44022D92556D50200774E43 /* WeekViewModelTest.swift */; };
 		F44022DE2556D81800774E43 /* WeatherDayViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44022DD2556D81800774E43 /* WeatherDayViewModelTest.swift */; };
+		F44022E325575E0800774E43 /* AddLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44022E225575E0800774E43 /* AddLocationViewModel.swift */; };
 		F4516FCF2552AE570060EB36 /* SettingsTimeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4516FCE2552AE570060EB36 /* SettingsTimeViewModelTest.swift */; };
 		F4516FD52552BCB10060EB36 /* SettingsUnitsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4516FD42552BCB10060EB36 /* SettingsUnitsViewModelTest.swift */; };
 		F4516FD92552BF060060EB36 /* SettingsTemperatureViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4516FD82552BF060060EB36 /* SettingsTemperatureViewModelTest.swift */; };
@@ -104,6 +105,7 @@
 		F4374E3A25558EB400114C58 /* DayViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewModelTest.swift; sourceTree = "<group>"; };
 		F44022D92556D50200774E43 /* WeekViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewModelTest.swift; sourceTree = "<group>"; };
 		F44022DD2556D81800774E43 /* WeatherDayViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDayViewModelTest.swift; sourceTree = "<group>"; };
+		F44022E225575E0800774E43 /* AddLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewModel.swift; sourceTree = "<group>"; };
 		F4516FB625520F7C0060EB36 /* CloudyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CloudyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4516FBA25520F7C0060EB36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4516FCE2552AE570060EB36 /* SettingsTimeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTimeViewModelTest.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 		CC4AF1A7246E84A20013D68C /* Add Location View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F44022E125575DF200774E43 /* ViewModels */,
 				CC4AF1A8246E84A20013D68C /* AddLocationViewController.swift */,
 			);
 			path = "Add Location View Controller";
@@ -370,6 +373,14 @@
 				F42362B6254DA20E005C852A /* WeatherDayPresentable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F44022E125575DF200774E43 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F44022E225575E0800774E43 /* AddLocationViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		F4516FB725520F7C0060EB36 /* CloudyTests */ = {
@@ -554,6 +565,7 @@
 				CC4AF182246E83960013D68C /* AppDelegate.swift in Sources */,
 				CC4AF1B1246E84A20013D68C /* DayViewController.swift in Sources */,
 				F4F6A1A92545F45D0090FCF3 /* DayViewModel.swift in Sources */,
+				F44022E325575E0800774E43 /* AddLocationViewModel.swift in Sources */,
 				CC4AF1CD246E84CC0013D68C /* Location.swift in Sources */,
 				CC4AF1D6246E94EC0013D68C /* TimeNotation.swift in Sources */,
 				CC4AF1B8246E84A20013D68C /* SettingsTableViewCell.swift in Sources */,
