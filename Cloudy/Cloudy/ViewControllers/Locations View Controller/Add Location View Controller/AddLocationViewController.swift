@@ -19,9 +19,10 @@ class AddLocationViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
-
+    @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
     // MARK: -
 
+    private var viewModel: AddLocationViewModel!
     private var locations: [Location] = []
 
     // MARK: -
@@ -39,6 +40,16 @@ class AddLocationViewController: UIViewController {
 
         // Set Title
         title = "Add Location"
+        
+        viewModel = AddLocationViewModel()
+        
+        viewModel.queryingDidChange = { [weak self] (querying) in
+            if querying {
+                self?.activityIndicatorView.startAnimating()
+            } else {
+                self?.activityIndicatorView.stopAnimating()
+            }
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -94,20 +105,16 @@ class AddLocationViewController: UIViewController {
 extension AddLocationViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return locations.count
+        return viewModel.numberOfLocations
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationTableViewCell.reuseIdentifier, for: indexPath) as? LocationTableViewCell else { fatalError("Unexpected Table View Cell") }
 
-        // Fetch Location
-        let location = locations[indexPath.row]
-
         // Create View Model
-        let viewModel = LocationViewModel(location: location.location, locationAsString: location.name)
-
-        // Configure Table View Cell
-        cell.configure(withViewModel: viewModel)
+        if let viewModel = viewModel.viewModelForLocation(at: indexPath.row) {
+            cell.configure(withViewModel: viewModel)
+        }
 
         return cell
     }
@@ -118,7 +125,7 @@ extension AddLocationViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Fetch Location
-        let location = locations[indexPath.row]
+        guard let location = viewModel?.location(at: indexPath.row) else { return }
 
         // Notify Delegate
         delegate?.controller(self, didAddLocation: location)
@@ -136,18 +143,14 @@ extension AddLocationViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
 
         // Forward Geocode Address String
-        geocode(addressString: searchBar.text)
+        viewModel.query = searchBar.text ?? ""
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         // Hide Keyboard
         searchBar.resignFirstResponder()
 
-        // Clear Locations
-        locations = []
-
-        // Update Table View
-        tableView.reloadData()
+        viewModel.query = ""
     }
 
 }

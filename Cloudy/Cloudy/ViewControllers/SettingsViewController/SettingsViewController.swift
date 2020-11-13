@@ -85,36 +85,27 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.reuseIdentifier, for: indexPath) as? SettingsTableViewCell else {
             fatalError("Unable to Dequeue Settings Table View Cell")
         }
-
-        switch section {
-        case .time:
-            cell.mainLabel.text = (indexPath.row == 0) ? "12 Hour" : "24 Hour"
-
-            let timeNotation = UserDefaults.timeNotation
-            if indexPath.row == timeNotation.rawValue {
-                cell.accessoryType = .checkmark
-            } else {
-                cell.accessoryType = .none
+        
+        let viewModel: SettingsPresentable = {
+            switch section {
+            case .time:
+                guard let timeNotation = TimeNotation(rawValue: indexPath.row) else { fatalError() }
+                
+                return SettingsTimeViewModel(timeNotation: timeNotation)
+                
+            case .units:
+                guard let unitNotation = UnitsNotation(rawValue: indexPath.row) else { fatalError() }
+                
+                return SettingsUnitsViewModel(unitsNotation: unitNotation)
+                
+            case .temperature:
+                guard let temperatureNotation = TemperatureNotation(rawValue: indexPath.row) else { fatalError() }
+                
+                return SettingsTemperatureViewModel(temperatureNotation: temperatureNotation)
             }
-        case .units:
-            cell.mainLabel.text = (indexPath.row == 0) ? "Imperial" : "Metric"
+        }()
 
-            let unitsNotation = UserDefaults.unitsNotation
-            if indexPath.row == unitsNotation.rawValue {
-                cell.accessoryType = .checkmark
-            } else {
-                cell.accessoryType = .none
-            }
-        case .temperature:
-            cell.mainLabel.text = (indexPath.row == 0) ? "Fahrenheit" : "Celcius"
-
-            let temperatureNotation = UserDefaults.temperatureNotation
-            if indexPath.row == temperatureNotation.rawValue {
-                cell.accessoryType = .checkmark
-            } else {
-                cell.accessoryType = .none
-            }
-        }
+        cell.configure(with: viewModel)
 
         return cell
     }
